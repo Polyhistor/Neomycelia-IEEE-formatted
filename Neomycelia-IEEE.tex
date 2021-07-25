@@ -141,6 +141,7 @@ While the speed layer usually deals with streams of data that need to be process
 Meanwhile, the NIST BD RA \cite{Chang} is the most comprehensive BD RA found in the SLR. The RA is delineated in terms of fabrics, providers, and services. Withall, we could not identify the notion of independent services or clearly defined contexts for the services. Along the lines, there is the pattern based approach conducted by Stricker et al. (\cite{Stricker}) that is heavily inspired by the works of Gamma et al (\cite{Gamma}).
 
 \subsection{From monolith to microservices}
+
 Recent approaches to software architecture tends towards increases in modularity and clearly defined boundaries \cite{Jamshidi}. The benefits derived of this shift sees organizations moving to design architectures as series of inter-communicating, yet independent services. Benefits include lower maintenance costs, increased ownership, more agile development, and better support for DevOps, versioning, and scaling \cite{Fritzsch}
 
 Most legacy systems today run on some kind of monolithic architecture. As monolithic applications grow, complexity and overheads increase, making maintenance a daunting task. Adopting new technologies in monolithic systems is difficult and if there exist design changes, the development team may need to put an immense amount of effort to meet new requirements.
@@ -149,10 +150,11 @@ In addition, many monolithic systems are not integrated with recent cloud techno
 
 These factors can hinder the development of complex systems such as big data systems, and create architectural risks when it comes to tradeoff points, sensititivity points, and quality attributes such as modifiability. Therefore, Neomycelia aims to move away from monolithic designs and is founded based on event-driven microservices.
 
+Whereas the concepts aformentioned can be beneficial to any system and not only big data systems, they can address some of the major challenges of adopting big data systems such as horizontal scaling, data quality and provenance, and throughput \cite{sivarajah2017critical}.
 
 \subsection{The microservices challenge}
 
-Whereas a microservices architecture offers a promising solution to issues related to monolithic systems, the implementation of it can be challenging. Sometimes referred to as a consequence of ‘monolithic microservices’, one of the key challenges of a successful microservices architecture is effective communication between services \cite{Munaf}.
+Microservices architecture offers a promising solution to issues related to monolithic systems, however the implementation of it can be challenging. Sometimes referred to as a consequence of ‘monolithic microservices’, one of the key challenges of a successful microservices architecture is effective communication between services \cite{Munaf}.
 
 The basic approach to asynchronous communication between services, is through REST API calls, where a service makes a REST call to another service. This is referred to as point-to-point communication and is useful for cases where no response is required or when an admin task needs to be executed.
 
@@ -162,11 +164,11 @@ Another approach to interservice asynchronous messaging in a microservices archi
 
 Any computational effort is then handled by the subscribers. Furthermore, a subscriber can be a publisher of message too \cite{Indrasiri}. In this case, the message broker is at the heart of the communications process. Whereas this approach is better than the former, it still can introduce coupling and affect quality attributes such as modifiability and performance.
 
-Hence, the ways in which services register, publish, subscribe and communicate is still is at risk. To address this, we have chosen an event driven architectural approach.
+Hence, the ways in which services register, publish, subscribe and communicate is still is at risk.
 
 \subsection{An event driven approach}
 
-The approaches to microservices communication described require some sort of coupling. Thus, interfaces need to be declared, services need to know what other services are responsible for, how messages will be processed, and services may have dependencies related to other microservices. As microservices increase in number, the maintenance of microservice coupling becomes increasingly challenging.
+The approaches to microservices communication described require some sort of coupling. Thus, interfaces need to be declared, services need to know what other services are responsible for, how messages will be processed, and services may have dependencies related to other microservices. As microservices increase in number, the maintenance of microservice coupling becomes increasingly challenging and this affect the overall quality of the architecture.
 
 However, we assert that the concerns above are not the aim of a microservices architecture. Instead, an event driven model provides an effective means of addressing those issues. Point-to-point or pub-sub communication between microservices means that each service should recognise related interfaces and the requirements for downstream microservices \cite{Gupta,Molina}.
 
@@ -178,6 +180,7 @@ The subtlety lies in the underlying approach, and philosophy of ‘event’ inst
 
 
 \section{Neomycelia}
+
 In this section, Neomycelia is described. Strong points for Neomycelia are its attention to metadata and data caching. With the exception of Bolster \cite{Nadal}, RAs scarcely include metadata. Metadata addresses a wide range of needs like security, privacy, scalability, and efficiency. In the context of  a distributed system, metadata bridges data stored in different functions such as in the Cloud versus that on premise \cite{Eichler}.
 
 Furthermore, there was no evidence of an RA that provides for data caching. Avoiding issues related to monolithic systems, and by adhering to principles of event-driven communications, the Neomycelia RA (\ref{NeomyceliaFig}) provides improved modularity, extendibility, modifiability, scalability, and maintainability. This is in line with quality attributes that has been set for evaluation purposes.

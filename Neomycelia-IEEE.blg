@@ -36,45 +36,45 @@ Warning--empty year in Cioroaica
 Warning--empty year in Williams
 
 Done.
-You've used 58 entries,
+You've used 59 entries,
             4024 wiz_defined-function locations,
-            1164 strings with 17662 characters,
-and the built_in function-call counts, 38232 in all, are:
-= -- 3029
-> -- 974
-< -- 248
-+ -- 525
-- -- 187
-* -- 1753
-:= -- 5875
-add.period$ -- 124
-call.type$ -- 58
-change.case$ -- 52
-chr.to.int$ -- 549
-cite$ -- 79
-duplicate$ -- 2902
-empty$ -- 3222
-format.name$ -- 230
-if$ -- 8815
+            1170 strings with 17877 characters,
+and the built_in function-call counts, 39156 in all, are:
+= -- 3106
+> -- 999
+< -- 258
++ -- 539
+- -- 191
+* -- 1798
+:= -- 6007
+add.period$ -- 126
+call.type$ -- 59
+change.case$ -- 53
+chr.to.int$ -- 573
+cite$ -- 80
+duplicate$ -- 2965
+empty$ -- 3287
+format.name$ -- 235
+if$ -- 9029
 int.to.chr$ -- 0
-int.to.str$ -- 58
-missing$ -- 529
-newline$ -- 197
-num.names$ -- 58
-pop$ -- 1290
+int.to.str$ -- 59
+missing$ -- 539
+newline$ -- 200
+num.names$ -- 59
+pop$ -- 1312
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 3017
+skip$ -- 3088
 stack$ -- 0
-substring$ -- 1368
-swap$ -- 2180
-text.length$ -- 65
+substring$ -- 1425
+swap$ -- 2237
+text.length$ -- 67
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 58
+type$ -- 59
 warning$ -- 21
-while$ -- 153
-width$ -- 60
-write$ -- 548
+while$ -- 158
+width$ -- 61
+write$ -- 558
 (There were 21 warnings)

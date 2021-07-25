@@ -4,7 +4,6 @@ The top-level auxiliary file: conference_101719.aux
 Reallocating 'name_of_file' (item size: 1) to 9 items.
 The style file: IEEEtran.bst
 Reallocating 'name_of_file' (item size: 1) to 11 items.
-I found no \citation commands---while reading file conference_101719.aux
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
@@ -14,47 +13,68 @@ Database file #1: references.bib
 -- IEEEtran.bst version 1.12 (2007/01/11) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--empty journal in AtaeiHype
+Warning--empty journal in chen2017big
+Warning--empty year in Derras
+Warning--empty year in Klein
+Warning--empty year in GALSTER
+Warning--empty year in Chaabane
+Warning--empty journal in AtaeiACIS
+Warning--empty journal in Beneken
+Warning--empty year in Stricker
+Warning--empty year in Babcock
+Warning--empty year in Terrizzano
+Warning--empty year in Fritzsch
+Warning--empty year in Villari
+Warning--missing institution in Chang
+Warning--empty year in Munaf
+Warning--empty year in Gupta
+Warning--empty year in Molina
+Warning--missing school in Eichler
+Warning--empty year in Cioroaica
+Warning--empty year in Williams
+Warning--empty year in KazmanATAM
 
 Done.
-You've used 0 entries,
+You've used 58 entries,
             4024 wiz_defined-function locations,
-            808 strings with 7235 characters,
-and the built_in function-call counts, 103 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 19
-:= -- 26
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
-chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 1
-format.name$ -- 0
-if$ -- 3
+            1164 strings with 17666 characters,
+and the built_in function-call counts, 38232 in all, are:
+= -- 3029
+> -- 974
+< -- 248
++ -- 525
+- -- 187
+* -- 1753
+:= -- 5875
+add.period$ -- 124
+call.type$ -- 58
+change.case$ -- 52
+chr.to.int$ -- 549
+cite$ -- 79
+duplicate$ -- 2902
+empty$ -- 3222
+format.name$ -- 230
+if$ -- 8815
 int.to.chr$ -- 0
-int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 23
-num.names$ -- 0
-pop$ -- 0
+int.to.str$ -- 58
+missing$ -- 529
+newline$ -- 197
+num.names$ -- 58
+pop$ -- 1290
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1
+skip$ -- 3017
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
+substring$ -- 1368
+swap$ -- 2180
+text.length$ -- 65
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 0
-warning$ -- 0
-while$ -- 0
-width$ -- 0
-write$ -- 22
-(There was 1 error message)
+type$ -- 58
+warning$ -- 21
+while$ -- 153
+width$ -- 60
+write$ -- 548
+(There were 21 warnings)

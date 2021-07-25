@@ -1,4 +1,4 @@
-PWD C:\Users\Admin\OneDrive - AUT University\PHD Journey\Papers\APSEC 2021 - Big Data RA
+PWD c:\Users\Admin\OneDrive - AUT University\PHD Journey\Papers\APSEC 2021 - Big Data RA
 INPUT C:\Users\Admin\AppData\Local\MiKTeX\2.9\miktex\data\le\pdftex\pdflatex.fmt
 INPUT c:\Users\Admin\OneDrive - AUT University\PHD Journey\Papers\APSEC 2021 - Big Data RA\conference_101719.tex
 OUTPUT c:\Users\Admin\OneDrive - AUT University\PHD Journey\Papers\APSEC 2021 - Big Data RA\conference_101719.log
@@ -112,17 +112,6 @@ INPUT D:\MikTex\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
 INPUT D:\MikTex\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
 INPUT D:\MikTex\fonts\tfm\adobe\times\ptmr7t.tfm
 INPUT D:\MikTex\fonts\tfm\adobe\times\ptmrc7t.tfm
-INPUT D:\MikTex\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
-INPUT D:\MikTex\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
-INPUT D:\MikTex\fonts\tfm\public\amsfonts\symbols\msam10.tfm
-INPUT D:\MikTex\fonts\tfm\public\amsfonts\symbols\msam7.tfm
-INPUT D:\MikTex\fonts\tfm\public\amsfonts\symbols\msam5.tfm
-INPUT D:\MikTex\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
-INPUT D:\MikTex\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
-INPUT D:\MikTex\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
-INPUT D:\MikTex\tex\latex\psnfss\ot1pcr.fd
-INPUT D:\MikTex\tex\latex\psnfss\ot1pcr.fd
-INPUT D:\MikTex\fonts\tfm\adobe\courier\pcrr7t.tfm
 OUTPUT c:\Users\Admin\OneDrive - AUT University\PHD Journey\Papers\APSEC 2021 - Big Data RA\conference_101719.pdf
 INPUT D:\MikTex\fonts\vf\adobe\times\ptmr7t.vf
 INPUT D:\MikTex\fonts\tfm\adobe\times\ptmr8r.tfm
@@ -141,56 +130,35 @@ INPUT D:\MikTex\fonts\vf\adobe\times\ptmb7t.vf
 INPUT D:\MikTex\fonts\tfm\adobe\times\ptmb8r.tfm
 INPUT D:\MikTex\fonts\vf\adobe\times\ptmrc7t.vf
 INPUT D:\MikTex\fonts\tfm\adobe\times\ptmr8r.tfm
-INPUT D:\MikTex\fonts\vf\adobe\times\ptmr7t.vf
-INPUT D:\MikTex\fonts\tfm\adobe\times\ptmr8r.tfm
-INPUT D:\MikTex\fonts\vf\adobe\times\ptmri7t.vf
-INPUT D:\MikTex\fonts\tfm\adobe\times\ptmri8r.tfm
-INPUT D:\MikTex\fonts\vf\adobe\courier\pcrr7t.vf
-INPUT D:\MikTex\fonts\tfm\adobe\courier\pcrr8r.tfm
-INPUT D:\MikTex\fonts\tfm\adobe\times\ptmrc7t.tfm
-INPUT D:\MikTex\fonts\tfm\public\cm\cmr6.tfm
-INPUT D:\MikTex\fonts\tfm\public\cm\cmmi6.tfm
-INPUT D:\MikTex\fonts\tfm\public\cm\cmsy6.tfm
-INPUT D:\MikTex\fonts\tfm\public\amsfonts\cmextra\cmex8.tfm
+INPUT D:\MikTex\fonts\vf\adobe\times\ptmb7t.vf
+INPUT D:\MikTex\fonts\tfm\adobe\times\ptmb8r.tfm
+INPUT D:\MikTex\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT D:\MikTex\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT D:\MikTex\fonts\tfm\public\amsfonts\symbols\msam10.tfm
 INPUT D:\MikTex\fonts\tfm\public\amsfonts\symbols\msam7.tfm
+INPUT D:\MikTex\fonts\tfm\public\amsfonts\symbols\msam5.tfm
 INPUT D:\MikTex\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT D:\MikTex\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
-INPUT c:\Users\Admin\OneDrive - AUT University\PHD Journey\Papers\APSEC 2021 - Big Data RA\fig1.png
-INPUT c:\Users\Admin\OneDrive - AUT University\PHD Journey\Papers\APSEC 2021 - Big Data RA\fig1.png
-INPUT c:\Users\Admin\OneDrive - AUT University\PHD Journey\Papers\APSEC 2021 - Big Data RA\fig1.png
-INPUT c:\Users\Admin\OneDrive - AUT University\PHD Journey\Papers\APSEC 2021 - Big Data RA\fig1.png
-INPUT c:\Users\Admin\OneDrive - AUT University\PHD Journey\Papers\APSEC 2021 - Big Data RA\fig1.png
-INPUT D:\MikTex\tex\latex\psnfss\omsptm.fd
-INPUT D:\MikTex\tex\latex\psnfss\omsptm.fd
-INPUT D:\MikTex\fonts\vf\adobe\times\ptmb7t.vf
-INPUT D:\MikTex\fonts\tfm\adobe\times\ptmb8r.tfm
+INPUT D:\MikTex\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
+INPUT c:\Users\Admin\OneDrive - AUT University\PHD Journey\Papers\APSEC 2021 - Big Data RA\Neomycelia.eps
+INPUT c:\Users\Admin\OneDrive - AUT University\PHD Journey\Papers\APSEC 2021 - Big Data RA\Neomycelia.eps
+INPUT c:\Users\Admin\OneDrive - AUT University\PHD Journey\Papers\APSEC 2021 - Big Data RA\Neomycelia.eps
+INPUT c:\Users\Admin\OneDrive - AUT University\PHD Journey\Papers\APSEC 2021 - Big Data RA\Neomycelia-eps-converted-to.pdf
+INPUT c:\Users\Admin\OneDrive - AUT University\PHD Journey\Papers\APSEC 2021 - Big Data RA\Neomycelia-eps-converted-to.pdf
+INPUT c:\Users\Admin\OneDrive - AUT University\PHD Journey\Papers\APSEC 2021 - Big Data RA\Neomycelia.eps
+INPUT c:\Users\Admin\OneDrive - AUT University\PHD Journey\Papers\APSEC 2021 - Big Data RA\Neomycelia-eps-converted-to.pdf
+INPUT c:\Users\Admin\OneDrive - AUT University\PHD Journey\Papers\APSEC 2021 - Big Data RA\Neomycelia-eps-converted-to.pdf
+INPUT c:\Users\Admin\OneDrive - AUT University\PHD Journey\Papers\APSEC 2021 - Big Data RA\Neomycelia-eps-converted-to.pdf
+INPUT c:\Users\Admin\OneDrive - AUT University\PHD Journey\Papers\APSEC 2021 - Big Data RA\Neomycelia-eps-converted-to.pdf
 INPUT D:\MikTex\fonts\vf\adobe\times\ptmr7t.vf
-INPUT D:\MikTex\fonts\vf\adobe\times\ptmrc7t.vf
-INPUT D:\MikTex\fonts\tfm\adobe\times\ptmr8r.tfm
-INPUT D:\MikTex\fonts\vf\adobe\times\ptmb7t.vf
-INPUT D:\MikTex\fonts\tfm\adobe\times\ptmb8r.tfm
-INPUT D:\MikTex\fonts\vf\adobe\times\ptmbi7t.vf
-INPUT D:\MikTex\fonts\tfm\adobe\times\ptmbi8r.tfm
 INPUT c:\Users\Admin\OneDrive - AUT University\PHD Journey\Papers\APSEC 2021 - Big Data RA\conference_101719.bbl
 INPUT c:\Users\Admin\OneDrive - AUT University\PHD Journey\Papers\APSEC 2021 - Big Data RA\conference_101719.bbl
+INPUT D:\MikTex\fonts\vf\adobe\times\ptmri7t.vf
+INPUT D:\MikTex\fonts\tfm\adobe\times\ptmri8r.tfm
 INPUT c:\Users\Admin\OneDrive - AUT University\PHD Journey\Papers\APSEC 2021 - Big Data RA\conference_101719.aux
 INPUT D:\MikTex\fonts\enc\dvips\base\8r.enc
-INPUT D:\MikTex\fonts\type1\public\amsfonts\cm\cmmi10.pfb
-INPUT D:\MikTex\fonts\type1\public\amsfonts\cm\cmmi10.pfb
-INPUT D:\MikTex\fonts\type1\public\amsfonts\cm\cmr10.pfb
-INPUT D:\MikTex\fonts\type1\public\amsfonts\cm\cmr10.pfb
-INPUT D:\MikTex\fonts\type1\public\amsfonts\cm\cmr6.pfb
-INPUT D:\MikTex\fonts\type1\public\amsfonts\cm\cmr6.pfb
-INPUT D:\MikTex\fonts\type1\public\amsfonts\cm\cmr7.pfb
-INPUT D:\MikTex\fonts\type1\public\amsfonts\cm\cmr7.pfb
-INPUT D:\MikTex\fonts\type1\public\amsfonts\cm\cmsy10.pfb
-INPUT D:\MikTex\fonts\type1\public\amsfonts\cm\cmsy10.pfb
 INPUT D:\MikTex\fonts\type1\public\amsfonts\cm\cmsy7.pfb
 INPUT D:\MikTex\fonts\type1\public\amsfonts\cm\cmsy7.pfb
-INPUT D:\MikTex\fonts\type1\urw\courier\ucrr8a.pfb
-INPUT D:\MikTex\fonts\type1\urw\courier\ucrr8a.pfb
 INPUT D:\MikTex\fonts\type1\urw\times\utmb8a.pfb
 INPUT D:\MikTex\fonts\type1\urw\times\utmb8a.pfb
 INPUT D:\MikTex\fonts\type1\urw\times\utmbi8a.pfb

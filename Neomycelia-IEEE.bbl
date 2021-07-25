@@ -181,6 +181,13 @@ V.~Stricker, K.~Lauenroth, P.~Corte, F.~Gittler, S.~De~Panfilis, and K.~Pohl,
   approach,'' in \emph{Future Internet Assembly}, Conference Proceedings, pp.
   149--160.
 
+\bibitem{KazmanATAM}
+R.~Kazman, M.~Klein, M.~Barbacci, T.~Longstaff, H.~Lipson, and J.~Carriere,
+  ``The architecture tradeoff analysis method,'' in \emph{Proceedings. Fourth
+  IEEE International Conference on Engineering of Complex Computer Systems
+  (Cat. No. 98EX193)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, Conference
+  Proceedings, pp. 68--78.
+
 \bibitem{Ordonez}
 C.~Ordonez, ``Statistical model computation with udfs,'' \emph{IEEE
   Transactions on Knowledge and Data Engineering}, vol.~22, no.~12, pp.
@@ -202,6 +209,21 @@ D.~Plotkin, \emph{Data stewardship: An actionable guide to effective data
   management and data governance}.\hskip 1em plus 0.5em minus 0.4em\relax
   Academic Press, 2020.
 
+\bibitem{Villari}
+M.~Villari, A.~Celesti, M.~Fazio, and A.~Puliafito, ``Alljoyn lambda: An
+  architecture for the management of smart environments in iot,'' in \emph{2014
+  International Conference on Smart Computing Workshops}.\hskip 1em plus 0.5em
+  minus 0.4em\relax IEEE, Conference Proceedings, pp. 9--14.
+
+\bibitem{Chang}
+W.~L. Chang and D.~Boyd, ``Nist big data interoperability framework: Volume 6,
+  big data reference architecture,'' Report, 2018.
+
+\bibitem{Gamma}
+E.~Gamma, \emph{Design patterns: elements of reusable object-oriented
+  software}.\hskip 1em plus 0.5em minus 0.4em\relax Pearson Education India,
+  1995.
+
 \bibitem{Jamshidi}
 P.~Jamshidi, C.~Pahl, N.~C. Mendonça, J.~Lewis, and S.~Tilkov,
   ``Microservices: The journey so far and challenges ahead,'' \emph{IEEE
@@ -219,21 +241,6 @@ J.~Fritzsch, J.~Bogner, A.~Zimmermann, and S.~Wagner, ``From monolith to
 L.~Bass, I.~Weber, and L.~Zhu, \emph{DevOps: A software architect's
   perspective}.\hskip 1em plus 0.5em minus 0.4em\relax Addison-Wesley
   Professional, 2015.
-
-\bibitem{Villari}
-M.~Villari, A.~Celesti, M.~Fazio, and A.~Puliafito, ``Alljoyn lambda: An
-  architecture for the management of smart environments in iot,'' in \emph{2014
-  International Conference on Smart Computing Workshops}.\hskip 1em plus 0.5em
-  minus 0.4em\relax IEEE, Conference Proceedings, pp. 9--14.
-
-\bibitem{Chang}
-W.~L. Chang and D.~Boyd, ``Nist big data interoperability framework: Volume 6,
-  big data reference architecture,'' Report, 2018.
-
-\bibitem{Gamma}
-E.~Gamma, \emph{Design patterns: elements of reusable object-oriented
-  software}.\hskip 1em plus 0.5em minus 0.4em\relax Pearson Education India,
-  1995.
 
 \bibitem{Munaf}
 R.~M. Munaf, J.~Ahmed, F.~Khakwani, and T.~Rana, ``Microservices architecture:
@@ -302,13 +309,6 @@ L.~G. Williams and C.~U. Smith, ``Pasasm: a method for the performance
   assessment of software architectures,'' in \emph{Proceedings of the 3rd
   international workshop on Software and performance}, Conference Proceedings,
   pp. 179--189.
-
-\bibitem{KazmanATAM}
-R.~Kazman, M.~Klein, M.~Barbacci, T.~Longstaff, H.~Lipson, and J.~Carriere,
-  ``The architecture tradeoff analysis method,'' in \emph{Proceedings. Fourth
-  IEEE International Conference on Engineering of Complex Computer Systems
-  (Cat. No. 98EX193)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, Conference
-  Proceedings, pp. 68--78.
 
 \bibitem{Iso}
 I.~Iso, ``Iec25010: 2011 systems and software engineering–systems and

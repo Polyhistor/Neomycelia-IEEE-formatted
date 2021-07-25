@@ -59,7 +59,7 @@ BD is an interplay of analytics methods, software engineering through developmen
 
 In fact, practitioners of complex systems, software engineers, and system designers have been frequently using reference architectures to have a collective understanding of system components, functionalities, data-flows and patterns which shape the overall qualities of system and help further adjust it to the business objectives \cite{Kohler,Cloutier}. In software product line (SPL) development, reference architectures are generic schemas that can be configured and instantiated for a particular domain of systems \cite{Derras}. In software engineering, reference architecture (RA) can be defined as means to represent and transfer knowledge that bridges from the problem domain to a family of solutions \cite{Klein}.
 
-RAs serve as a mechanism that embodies domain relevant qualities and concepts, breaks down the solutions and generates a terminology to facilitate effective communication, and illuminates various stakeholders and system designers \cite{Klein}. This allows RAs to provide an opportunity for early identification of design issues, when making changes is still cheap. This has several side-benefits such as: 1) Ensuring cross-cutting concerns are addressed, 2) Scales the knowledge of architects and engineers across the organization, 3) Helps achieving consensus around major design choices, 4) Creates the foundation of organization memory around design decisions, 5) Acts as a blueprint and a summary artefact in the portfolio of the architects and software engineers
+RAs serve as a mechanism that embodies domain relevant qualities and concepts, breaks down the solutions, generates a terminology to facilitate effective communication, and illuminates various stakeholders and system designers \cite{Klein}. This allows RAs to provide an opportunity for early identification of design issues, when making changes is still cheap. This has several side-benefits such as: 1) Ensuring cross-cutting concerns are addressed, 2) Scales the knowledge of architects and engineers across the organization, 3) Helps achieving consensus around major design choices, 4) Creates the foundation of organization memory around design decisions, 5) Acts as a blueprint and a summary artefact in the portfolio of the architects and software engineers
 
 
 \section{Research Methodology}
@@ -75,7 +75,7 @@ To increase systematicity and allow for reproducibility of Neomycelia, we follow
 
 Therefore, to increase systematicity and transparency of this research, we conducted a systematic literature review (SLR) to capture current best evidence from the available literature. For this purpose we follow the guidelines of PRISMA presented by Shamseer et al. (\cite{Shamseer}).
 
-Our aim was to find all available BD reference architectures in literature and gray literature. This has helped by grounding a solid formation for development of Neomycelia. We’ve selected IEEE Explore, ScienceDirect, SpringerLink, ACM library, MIS Quarterly, Elsevier, AISel as well as citation databases such as Scopus, Web of Science, Google Scholar, and Research Gate. The search keywords used are 'Big Data Reference Architectures', 'Reference Architectures in the domain of Big Data', and 'Reference Architectures and Big Data';
+Our aim was to find all available BD reference architectures in literature and gray literature in order to identify common theme and fundamental components to big data systems. This has helped by grounding a solid formation for development of Neomycelia. We’ve selected IEEE Explore, ScienceDirect, SpringerLink, ACM library, MIS Quarterly, Elsevier, AISel as well as citation databases such as Scopus, Web of Science, Google Scholar, and Research Gate. The search keywords used are 'Big Data Reference Architectures', 'Reference Architectures in the domain of Big Data', and 'Reference Architectures and Big Data';
 
 In the first phase of the SLR (identification), 84 literature has been pooled. Out of this pool, 57 study has been selected based on our inclusion, exclusion and quality criteria. Studied that provided with detailed analysis and practice have been included. Studied that provided with substantial case studies have been included. Papers that discussed current BD RAs, it’s ecosystems and drivers have been included. Papers that are recent (in the range of 2010-2020) have been included.
 
@@ -170,10 +170,15 @@ In this section, Neomycelia is described. Strong points for Neomycelia are its a
 Furthermore, there was no evidence of an RA that provides for data caching. Avoiding issues related to monolithic systems, and by adhering to principles of event-driven communications, the Neomycelia RA (\ref{NeomyceliaFig}) provides improved modularity, extendibility, modifiability, scalability, and maintainability. This is in line with quality attributes that has been set for evaluation purposes.
 
 
-\begin{figure}
+
+
+\begin{figure*}[!ht]
+    \centering
     \includegraphics[width=\textwidth]{Neomycelia.eps}
     \caption{Neomycelia Software Reference Architecture.} \label{NeomyceliaFig}
-\end{figure}
+\end{figure*}
+
+
 
 \subsection{Components}
 

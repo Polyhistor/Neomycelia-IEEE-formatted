@@ -112,7 +112,7 @@ After deciding on views and methods of describing architecture, and by analyzing
 
 In the first iteration of the research methodology discussed in previous section, in step 3, we have captured architectural data and studied common themes in current BD systems. This has laid the foundation of Neomycelia and has illuminated us on the architectural requirements of BD systems. Thus, before the actual design and creation of the software RA, we have first listed the principal characteristics of BD systems and how they should be incorporated into the final artefact.
 
-We have then introduced some of the well-known industrial patterns into the reference architecture and justified it. In what follows, we first discuss the principal characteristics of BD, we then discuss related works, microservices, event driven approaches, and justify each decision made. From there on, we will represent the software RA and describe the building blocks.
+We have then introduced some of the well-known industrial patterns into the reference architecture and justified it. In what follows, we first discuss the principal characteristics of BD, we then discuss related works, microservices, event driven approaches, and justify each decision made. From there on, we will represent the software RA and describe the building blocks. 
 
 \subsection{Big data system characteristics}
 
@@ -249,8 +249,6 @@ This is achieved by evaluating the correctness and utility of the RA, and how ef
 
 Evaluation is undertaken in an Auckland-based company and being applied to new and existing workflows. The company provides practice management software to veterinary professionals via a Software as a Service (SaaS). The company serves over 15,000 clients from New Zealand, Australia, USA, UK, and Canada with some large equine hospitals and veterinary clinics. The company aims to embark on big data and machine learning endeavour, and seize abundance of business opportunities that exist.
 
-
-
 During the initial meeting, we first presented the ATAM and Neomycelia, and the business stakeholders presented the business case. We have then scoped down the business case to one workflow that NeoMycelia can account for. We learnt that countries adhere to local regulatory frameworks for drug prescriptions for animals, which means local jurisdictions control access to veterinary drugs as Restricted Veterinary Medicines (RVM). Under this protocol, all patients should be background-checked before a drug is dispensed. Therefore, real-time stream processing for background-checks and batch processing for billing triggers and reports generation is needed.  In the future, the system may provide breed detection via image processing of animal photos.
 
 We have used this information to generate quality attributes utility tree, to analyze our architectural approach and to create a prototype of Neomycelia.
@@ -296,7 +294,6 @@ A simulation scenario with a request that emulates the system in production has 
 We engineered API gateway to pass the request to the representative Lambda. The Lambda performed straightforward preprocessing (adding properties or mutating JSON objects) on the data and dispatched an event to Kafka.
 
 We learnt that our prototype does not account for 'privacy' quality attribute that has been discussed. Thus we added two new service mesh namely 'semantic layer' and 'policy manager' service mesh.
-
 
 This service mesh is the central hub for all metadata processing, containing the MetaData Management (MDM) system. The MDM is responsible for providing services with information to define and model raw data. This is where a domain vocabulary is defined and controlled by data stewards. The semantic layer provides the opportunity to store metadata, preparation rules, and data evolution and reduces the need for the data analyst or scientist to repeat work. Other semantic practices such as data source register, data transformation log, data cleaning, discretization are also catered for.
 

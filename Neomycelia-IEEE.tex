@@ -297,6 +297,11 @@ We engineered API gateway to pass the request to the representative Lambda. The 
 
 We learnt that our prototype does not account for 'privacy' quality attribute that has been discussed. Thus we added two new service mesh namely 'semantic layer' and 'policy manager' service mesh.
 
+
+This service mesh is the central hub for all metadata processing, containing the MetaData Management (MDM) system. The MDM is responsible for providing services with information to define and model raw data. This is where a domain vocabulary is defined and controlled by data stewards. The semantic layer provides the opportunity to store metadata, preparation rules, and data evolution and reduces the need for the data analyst or scientist to repeat work. Other semantic practices such as data source register, data transformation log, data cleaning, discretization are also catered for.
+
+This service mesh is responsible for applying or checking policies about input data. In recent years, data privacy has presented as a challenge in BD management (Bashari Rad et al. 2016), so the policy manager aligns policies with various contexts to determine how data should be retrieved or processed, without significant coupling to the system. As the number of policies increase and are developed, more services can be added to this service mesh. The need for a new policy manager service mesh ought to be rare.
+
 In this case, the request needs to be checked against the policies available in that geographic region. Policies are coded in the policy manager services mesh and the controller decides if a request needs to go through a policy manager initially.
 
 The policy manager performs internal processing and decides if a property should be omitted or if the data can even be processed at all. Once done, the policy manager dispatches an event to the relevant topic. If processing is allowed, then the stream processing and batch processing service meshes that are listening for that topic will have their event handlers fired.

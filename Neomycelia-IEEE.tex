@@ -223,10 +223,6 @@ The event backbone is the sole controller of communication between services, thr
 
 \textbf{Data Lake}: This contains structured, pseudo-structured, unstructured, and semi-structured data. In a generic setup, data is usually stored in the data lake before it is stream or batch processed. This may not provide the best-case scenario for all situations, so it is up to the architect to decide if that is the most appropriate  data flow in the system.
 
-% \textbf{Semantic Layer}: This service mesh is the central hub for all metadata processing, containing the MetaData Management (MDM) system. The MDM is responsible for providing services with information to define and model raw data. This is where a domain vocabulary is defined and controlled by data stewards. The semantic layer provides the opportunity to store metadata, preparation rules, and data evolution and reduces the need for the data analyst or scientist to repeat work. Other semantic practices such as data source register, data transformation log, data cleaning, discretization are also catered for.
-
-% \textbf{Policy Manager}: This service mesh is responsible for applying or checking policies about input data. In recent years, data privacy has presented as a challenge in BD management (Bashari Rad et al. 2016), so the policy manager aligns policies with various contexts to determine how data should be retrieved or processed, without significant coupling to the system. As the number of policies increase and are developed, more services can be added to this service mesh. The need for a new policy manager service mesh ought to be rare.
-
 \textbf{Query Controller}: This service determines the type of query received (stream, batch, or other) that come from the gateway and dispatches the event to the query engine. The controller performs straight forward pre-processing or sanitization as required but heavy computation should be avoided.
 
 \textbf{Query Engine}: This service processes query requests. Once values are created, an event is dispatched the subsequent service to return results.
@@ -265,28 +261,53 @@ In phase 2, We have first created an archetype of Neomycelia. We utilised ISO/IE
 
 This archetype incorporates Kafka as the event backbone, AWS Lambda for the stream processing and batch processing controllers, Amazon load balancer as the gateway (application load balancer), Envoy for the sidecar services, Kubernetes as cluster manager, Docker for container technology, Resilience4J for a fault-tolerant communication module, Prometheus for the monitoring tool, Zookeeper for the service discovery tool, Istio as the service mesh control tower, Amazon RDS for services private database, Amazon S3 for the event archive, Amazon MQ as the message broker inside the mesh, an Amazon data lake, and Amazon EC2 for services. To account for better availability we have additionally setup autoscaling groups targeting two different target groups in two different zones.
 
+We have then presented the architecture to the stakeholders, identified architectural approaches, elicited quality attribute trees, and finally prioritized scenarios.
+
 \subsubsection{Identifying architectural approaches}
 
-To identify architectural approaches, we elicited information from the archetype with respect to modifiability, availability, and performance. The archetype, following Neomycelia has been created underlying 'zero coupling' principle. Howbeit, we still probed for risks, sensitivities, and tradeoffs.
+To identify architectural approaches, we elicited information from the archetype with respect to modifiability, availability, and performance.
 
 \begin{itemize}
     \item for performance, application load balancer, lambdas and service meshes have been described
     \item for availability, we discussed scaling groups, and event archive
-    \item for modifiability, we discussed the 'zero coupling' philosophy of Neomycelia and decentralised nature of it
+    \item for modifiability, we discussed the 'zero coupling' philosophy of Neomycelia and decentralized nature of it
 \end{itemize}
 
+We probed each quality attribute for tradeoffs, sensitivity points, and risks.
+
+\subsubsection{Ulitity tree elicitation}
+
+In this step, we learnt from the stakeholders that privacy, modifiability and performance are the most important quality attributes. Based upon this, utility tree has been generated (\ref{UtilityFig}).
 
 
-% A simulation scenario with a request that emulates the system in production has been formulated. While only one topic was created this scenario, adding new topics and services or removing existing ones is fairly trivial. An API gateway has been engineered to pass the request to the representative Lambda. The Lamda performs straightforward preprocessing (adding properties or mutating JSON objects) on the data and dispatches an event to Kafka. In this case, the request needs to be checked against the policies available in that geographic region. Policies are coded in the policy manager services mesh and the controller decides if a request needs to go through a policy manager initially.
+\begin{figure}
+    \centering
+    \includegraphics[width=9cm]{Utility Tree.pdf}
+    \caption{Utility Tree} \label{UtilityFig}
+\end{figure}
 
-% The policy manager performs internal processing and decides if a property should be omitted or if the data can even be processed at all. Once done, the policy manager dispatches an event to the relevant topic. If processing is allowed, then the stream processing and batch processing service meshes that are listening for that topic will have their event handlers fired. In the case of batch processing, each service will take the data, process it and then dispatch another event. This is the same for stream processing, with the difference that the requests will go through the message broker first. The controller is also responsible for choosing the storage processing strategy. Whereas most requests are saved in the data lake first, many may need to go through stream processing before that and then be dispatched to the data warehouse.
+
+\subsubsection{Analyze architectural approaches}
+
+At this stage, we mapped our architectural approaches against a simulation scenario that matches businesses' case study. This approach was used to provide for heuristic qualitative analysis, to understand risks, tradeoffs and sensitivity points.
+
+A simulation scenario with a request that emulates the system in production has been formulated. We created relevant topic in the event backbone, and sent a mock API request with a mock data to test the system's response.
+
+We engineered API gateway to pass the request to the representative Lambda. The Lambda performed straightforward preprocessing (adding properties or mutating JSON objects) on the data and dispatched an event to Kafka.
+
+We learnt that our prototype does not account for 'privacy' quality attribute that has been discussed. Thus we added two new service mesh namely 'semantic layer' and 'policy manager' service mesh.
+
+In this case, the request needs to be checked against the policies available in that geographic region. Policies are coded in the policy manager services mesh and the controller decides if a request needs to go through a policy manager initially.
+
+The policy manager performs internal processing and decides if a property should be omitted or if the data can even be processed at all. Once done, the policy manager dispatches an event to the relevant topic. If processing is allowed, then the stream processing and batch processing service meshes that are listening for that topic will have their event handlers fired.
+
+In the case of batch processing, each service will take the data, process it and then dispatch another event. This is the same for stream processing, with the difference that the requests will go through the message broker first. The controller is also responsible for choosing the storage processing strategy. Whereas most requests are saved in the data lake first, many may need to go through stream processing before that and then be dispatched to the data warehouse.
 
 \section{Conclusion}
 
 As data-oriented technologies emerge, long-established ideologies toward the nature of system design and architecture are revolutionized. Companies are required to be prepared to tackle the apparent difficulty of this field and absorb the complexity. RAs provide a starting point to manage the complexity of BD. In the case of ambiguity towards what should be developed against need, architectures play an overarching role in describing the building blocks of the system and the ways in which blocks communicate to achieve the goals of the system. Future work on Neomycelia and other RAs address security concerns and creating more complex and distributed metadata management technologies.
 
 % ---- Bibliography ----
-% \section*{References}
 \bibliography{references}
 \bibliographystyle{IEEEtran}
 

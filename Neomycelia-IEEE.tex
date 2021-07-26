@@ -185,26 +185,21 @@ In this section, Neomycelia is described. Strong points for Neomycelia are its a
 
 Furthermore, there was no evidence of an RA that provides for data caching. Avoiding issues related to monolithic systems, and by adhering to principles of event-driven communications, the Neomycelia RA (\ref{NeomyceliaFig}) provides improved modularity, extendibility, modifiability, scalability, and maintainability. This is in line with quality attributes that has been set for evaluation purposes.
 
-
-
-
 \begin{figure*}[!ht]
     \centering
-    \includegraphics[width=\textwidth]{Neomycelia.eps}
+    \includegraphics[width=\textwidth]{Neomycelia-Minimal.eps}
     \caption{Neomycelia Software Reference Architecture.} \label{NeomyceliaFig}
 \end{figure*}
 
-
-
 \subsection{Components}
 
-Neomycelia is comprised of 14 essential architectural components. The terms node, and service are used interchangeably.
+Neomycelia is comprised of 14 essential architectural components. Our aim is to provide a high level overview of these services, and detailed explanation of each service is outside the scope of this study. The terms node, and service are used interchangeably.
 
-\textbf{Gateway}: This is the main entry point and determines how messages are handled. Gateway acts as a reverse proxy that accepts all incoming requests from Application Programming Interfaces (API) and appoints them to appropriate services. This mechanism provides the security, scalability, and maintainability aspects of the RA.
+\textbf{Gateway}: This is the main entry point and determines how messages are handled. Gateway acts as a reverse proxy that accepts all incoming requests from Application Programming Interfaces (API) and appoints them to appropriate services. This mechanism provides the performance and modifiability aspects of the RA. In addition, gateway can bring other benefits such as increased security, logging, and load balancing.
 
-\textbf{Stream processing controller}: This service forwards requests to the stream processing service mesh. Low impact processes like basic sanitization, authentication, and potential validation take place here. Computationally expensive events are not processed in this node. The stream processing controller provides stream provenance and may decide which one-pass algorithm should run over what event stream.
+\textbf{Stream processing controller}: This service forwards requests to the stream processing service mesh. Low impact processes like basic sanitization, authentication, and potential validation take place here. Computationally expensive events are not processed in this node. The stream processing controller provides stream provenance and may decide which one-pass algorithm should run over what event stream. This services serves as the initial invocation.
 
-\textbf{Batch processing controller}: The function of this node is to forward requests to the batch processing service mesh. Low impact pre-processing such as preliminary normalization can take please in this node. It is necessary to avoid computationally expensive processes in this service.
+\textbf{Batch processing controller}: The function of this service is to forward requests to the batch processing service mesh. Low impact pre-processing such as preliminary normalization can take please in this node. It is necessary to avoid computationally expensive processes in this service. This service serves as the initial invocation.
 
 \textbf{Stream processing service mesh}: Based on the requirements for specific stream processing approaches, this service is comprised of an arbitrary number of nodes for stream processing. A cache manager keeps track of values processes in the event queue and keeps an event archive with a list of associated computed values. Each service has its own local database. Most stream processing algorithms are operating on in-memory stateful data structures, such as HyperLogLog, to compute distinct values and provide summary output. Different services can adopt unique processing and windowing approaches such as micro-batch processing and tuple-at-a-time \cite{Sahal}.
 
@@ -228,9 +223,9 @@ The event backbone is the sole controller of communication between services, thr
 
 \textbf{Data Lake}: This contains structured, pseudo-structured, unstructured, and semi-structured data. In a generic setup, data is usually stored in the data lake before it is stream or batch processed. This may not provide the best-case scenario for all situations, so it is up to the architect to decide if that is the most appropriate  data flow in the system.
 
-\textbf{Semantic Layer}: This service mesh is the central hub for all metadata processing, containing the MetaData Management (MDM) system. The MDM is responsible for providing services with information to define and model raw data. This is where a domain vocabulary is defined and controlled by data stewards. The semantic layer provides the opportunity to store metadata, preparation rules, and data evolution and reduces the need for the data analyst or scientist to repeat work. Other semantic practices such as data source register, data transformation log, data cleaning, discretization are also catered for.
+% \textbf{Semantic Layer}: This service mesh is the central hub for all metadata processing, containing the MetaData Management (MDM) system. The MDM is responsible for providing services with information to define and model raw data. This is where a domain vocabulary is defined and controlled by data stewards. The semantic layer provides the opportunity to store metadata, preparation rules, and data evolution and reduces the need for the data analyst or scientist to repeat work. Other semantic practices such as data source register, data transformation log, data cleaning, discretization are also catered for.
 
-\textbf{Policy Manager}: This service mesh is responsible for applying or checking policies about input data. In recent years, data privacy has presented as a challenge in BD management (Bashari Rad et al. 2016), so the policy manager aligns policies with various contexts to determine how data should be retrieved or processed, without significant coupling to the system. As the number of policies increase and are developed, more services can be added to this service mesh. The need for a new policy manager service mesh ought to be rare.
+% \textbf{Policy Manager}: This service mesh is responsible for applying or checking policies about input data. In recent years, data privacy has presented as a challenge in BD management (Bashari Rad et al. 2016), so the policy manager aligns policies with various contexts to determine how data should be retrieved or processed, without significant coupling to the system. As the number of policies increase and are developed, more services can be added to this service mesh. The need for a new policy manager service mesh ought to be rare.
 
 \textbf{Query Controller}: This service determines the type of query received (stream, batch, or other) that come from the gateway and dispatches the event to the query engine. The controller performs straight forward pre-processing or sanitization as required but heavy computation should be avoided.
 
@@ -247,28 +242,52 @@ Optional services include sidecars, control towers, event queue, cache manager s
 
 \section{Evaluation}
 
-RAs lack clearly defined stakeholders, exist at a high level of abstraction, and are highly adaptable \cite{AtaeiACIS}.RA evaluation is a challenge \cite{angelov2008contracting,Avgeriou,Cioroaica,Maier} because they are not the same as a typical architecture, therefore architecture analysis methods and tools like SAAM (\cite{KazmanSASM}), ALMA (\cite{Bengtsson}), PASA (\cite{Williams}), and ATAM (\cite{KazmanATAM}) cannot be applied. Evaluation of the RA assesses effectiveness, utility, and whether Neomycelia meets its requirements.
+RAs lack clearly defined stakeholders, exist at a high level of abstraction, and are highly adaptable \cite{AtaeiACIS}.RA evaluation is a challenge \cite{angelov2008contracting,Avgeriou,Cioroaica,Maier} because they are not the same as a typical architecture. Based on the guidelines provided by Galster and Avgeriou (\cite{GALSTER}), utility, correctness and instantiation support determine the quality of the RA, and therefore an effective evaluation is critical. To achieve that, we have first deduced a prototype architecture and then followed the guideline of architecture tradeoff analysis method (ATAM \cite{KazmanATAM}) to evaluate the prototype in practice.
 
-This is achieved by evaluating the correctness and utility of the RA, and how efficiently adaptation can be instantiated \cite{GALSTER}. Quality is assessed by how the RA may be transformed into an effective organization-specific concrete architecture. Neomycelia inherits successful attributes from the RAs it is based on. A scenario-based evaluation has been selected that focusses on quality attributes.
+This is achieved by evaluating the correctness and utility of the RA, and how efficiently adaptation can be instantiated \cite{GALSTER}. Quality is assessed by how the RA can be transformed into an effective organization-specific concrete architecture and through qualitative and quantitative methods discussed in ATAM. This evaluation follows two phases. Phase 1 includes gathering basic information about the company, practice, and interaction with key stakeholders, and phase 2 includes analysis and evaluation of the proposed architecture, understanding quality attributes, tradeoff points, sensitive points and risks. We do not describe every step of the ATAM for brevity purposes. Additionally, some of the details have been changed for academic purposes and to protect the intellectual property of the practice, howbeit the evaluation results are not materially affected.
 
-Evaluation is being undertaken in an Auckland-based company and being applied to new and existing workflows. The company provides practice management software to veterinary professionals via a Software as a Service (SaaS). The company serves over 15,000 clients from New Zealand, Australia, USA, UK, and Canada with some large equine hospitals and veterinary clinics. ISO/IEC 25000 SQuaRE standard (Software Product Quality Requirements and Evaluation) (\cite{Iso}) is selected as a reference quality model for technology selection. This model is described in terms of characteristics and sub-characteristics.
+\subsection{Phase 1}
 
-The explanation of these characteristics is out of the scope of this paper.
-Countries adhere to local regulatory frameworks for drug prescriptions for animals, which means local jurisdictions control access to veterinary drugs as Restricted Veterinary Medicines (RVM). Under this protocol, all patients should be background-checked before a drug is dispensed. Therefore, real-time stream processing for background-checks and batch processing for billing triggers and reports generation is needed.  In the future, the system may provide breed detection via image processing of animal photos.
 
-An instantiation of Neomycelia is developed that incorporates Kafka as the event backbone, AWS Lambda for the stream processing and batch processing controllers, Amazon API gateway as the gateway, Envoy for the sidecar services, Kubernetes as cluster manager, Docker for container technology, Resilience4J for a fault-tolerant communication module, Prometheus for the monitoring tool, Zookeeper for the service discovery tool, Istio as the service mesh control tower, Amazon RDS for services private database, Amazon S3 for the event archive, Amazon MQ as the message broker inside the mesh, an Amazon data lake, and Amazon EC2 for services.
+% Neomycelia inherits successful attributes from the RAs it is based on. A scenario-based evaluation has been selected that focusses on quality attributes.
 
-A simulation scenario with a request that emulates the system in production has been formulated. While only one topic was created this scenario, adding new topics and services or removing existing ones is fairly trivial. An API gateway has been engineered to pass the request to the representative Lambda. The Lamda performs straightforward preprocessing (adding properties or mutating JSON objects) on the data and dispatches an event to Kafka. In this case, the request needs to be checked against the policies available in that geographic region. Policies are coded in the policy manager services mesh and the controller decides if a request needs to go through a policy manager initially.
+Evaluation is undertaken in an Auckland-based company and being applied to new and existing workflows. The company provides practice management software to veterinary professionals via a Software as a Service (SaaS). The company serves over 15,000 clients from New Zealand, Australia, USA, UK, and Canada with some large equine hospitals and veterinary clinics. The company aims to embark on big data and machine learning endeavour, and seize abundance of business opportunities that exist.
 
-The policy manager performs internal processing and decides if a property should be omitted or if the data can even be processed at all. Once done, the policy manager dispatches an event to the relevant topic. If processing is allowed, then the stream processing and batch processing service meshes that are listening for that topic will have their event handlers fired. In the case of batch processing, each service will take the data, process it and then dispatch another event. This is the same for stream processing, with the difference that the requests will go through the message broker first. The controller is also responsible for choosing the storage processing strategy. Whereas most requests are saved in the data lake first, many may need to go through stream processing before that and then be dispatched to the data warehouse.
+
+
+During the initial meeting, we first presented the ATAM and Neomycelia, and the business stakeholders presented the business case. We have then scoped down the business case to one workflow that NeoMycelia can account for. We learnt that countries adhere to local regulatory frameworks for drug prescriptions for animals, which means local jurisdictions control access to veterinary drugs as Restricted Veterinary Medicines (RVM). Under this protocol, all patients should be background-checked before a drug is dispensed. Therefore, real-time stream processing for background-checks and batch processing for billing triggers and reports generation is needed.  In the future, the system may provide breed detection via image processing of animal photos.
+
+We have used this information to generate quality attributes utility tree, to analyze our architectural approach and to create a prototype of Neomycelia.
+
+\subsection{Phase 2}
+
+In phase 2, We have first created an archetype of Neomycelia. We utilised ISO/IEC 25000 SQuaRE standard (Software Product Quality Requirements and Evaluation) (\cite{Iso}) as a reference quality model for technology selection. This model is described in terms of characteristics and sub-characteristics. The explanation of these characteristics is out of the scope of this paper.
+
+This archetype incorporates Kafka as the event backbone, AWS Lambda for the stream processing and batch processing controllers, Amazon load balancer as the gateway (application load balancer), Envoy for the sidecar services, Kubernetes as cluster manager, Docker for container technology, Resilience4J for a fault-tolerant communication module, Prometheus for the monitoring tool, Zookeeper for the service discovery tool, Istio as the service mesh control tower, Amazon RDS for services private database, Amazon S3 for the event archive, Amazon MQ as the message broker inside the mesh, an Amazon data lake, and Amazon EC2 for services. To account for better availability we have additionally setup autoscaling groups targeting two different target groups in two different zones.
+
+\subsubsection{Identifying architectural approaches}
+
+To identify architectural approaches, we elicited information from the archetype with respect to modifiability, availability, and performance. The archetype, following Neomycelia has been created underlying 'zero coupling' principle. Howbeit, we still probed for risks, sensitivities, and tradeoffs.
+
+\begin{itemize}
+    \item for performance, application load balancer, lambdas and service meshes have been described
+    \item for availability, we discussed scaling groups, and event archive
+    \item for modifiability, we discussed the 'zero coupling' philosophy of Neomycelia and decentralised nature of it
+\end{itemize}
+
+
+
+% A simulation scenario with a request that emulates the system in production has been formulated. While only one topic was created this scenario, adding new topics and services or removing existing ones is fairly trivial. An API gateway has been engineered to pass the request to the representative Lambda. The Lamda performs straightforward preprocessing (adding properties or mutating JSON objects) on the data and dispatches an event to Kafka. In this case, the request needs to be checked against the policies available in that geographic region. Policies are coded in the policy manager services mesh and the controller decides if a request needs to go through a policy manager initially.
+
+% The policy manager performs internal processing and decides if a property should be omitted or if the data can even be processed at all. Once done, the policy manager dispatches an event to the relevant topic. If processing is allowed, then the stream processing and batch processing service meshes that are listening for that topic will have their event handlers fired. In the case of batch processing, each service will take the data, process it and then dispatch another event. This is the same for stream processing, with the difference that the requests will go through the message broker first. The controller is also responsible for choosing the storage processing strategy. Whereas most requests are saved in the data lake first, many may need to go through stream processing before that and then be dispatched to the data warehouse.
 
 \section{Conclusion}
 
 As data-oriented technologies emerge, long-established ideologies toward the nature of system design and architecture are revolutionized. Companies are required to be prepared to tackle the apparent difficulty of this field and absorb the complexity. RAs provide a starting point to manage the complexity of BD. In the case of ambiguity towards what should be developed against need, architectures play an overarching role in describing the building blocks of the system and the ways in which blocks communicate to achieve the goals of the system. Future work on Neomycelia and other RAs address security concerns and creating more complex and distributed metadata management technologies.
 
 % ---- Bibliography ----
-\section*{References}
-\bibliographystyle{IEEEtran}
+% \section*{References}
 \bibliography{references}
+\bibliographystyle{IEEEtran}
 
 \end{document}

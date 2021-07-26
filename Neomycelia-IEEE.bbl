@@ -299,22 +299,6 @@ E.~Cioroaica, S.~Chren, B.~Buhnova, T.~Kuhn, and D.~Dimitrov, ``Towards
 M.~Maier, A.~Serebrenik, and I.~Vanderfeesten, ``Towards a big data reference
   architecture,'' \emph{University of Eindhoven}, 2013.
 
-\bibitem{KazmanSASM}
-R.~Kazman, G.~Abowd, L.~Bass, and P.~Clements, ``Scenario-based analysis of
-  software architecture,'' \emph{IEEE software}, vol.~13, no.~6, pp. 47--55,
-  1996.
-
-\bibitem{Bengtsson}
-P.~Bengtsson, N.~Lassing, J.~Bosch, and H.~van Vliet, ``Architecture-level
-  modifiability analysis (alma),'' \emph{Journal of Systems and Software},
-  vol.~69, no. 1-2, pp. 129--147, 2004.
-
-\bibitem{Williams}
-L.~G. Williams and C.~U. Smith, ``Pasasm: a method for the performance
-  assessment of software architectures,'' in \emph{Proceedings of the 3rd
-  international workshop on Software and performance}, Conference Proceedings,
-  pp. 179--189.
-
 \bibitem{Iso}
 I.~Iso, ``Iec25010: 2011 systems and software engineering–systems and
   software quality requirements and evaluation (square)–system and software

@@ -112,7 +112,7 @@ After deciding on views and methods of describing architecture, and by analyzing
 
 In the first iteration of the research methodology discussed in previous section, in step 3, we have captured architectural data and studied common themes in current BD systems. This has laid the foundation of Neomycelia and has illuminated us on the architectural requirements of BD systems. Thus, before the actual design and creation of the software RA, we have first listed the principal characteristics of BD systems and how they should be incorporated into the final artefact.
 
-We have then introduced some of the well-known industrial patterns into the reference architecture and justified it. In what follows, we first discuss the principal characteristics of BD, we then discuss related works, microservices, event driven approaches, and justify each decision made. From there on, we will represent the software RA and describe the building blocks. 
+We have then introduced some of the well-known industrial patterns into the reference architecture and justified it. In what follows, we first discuss the principal characteristics of BD, we then discuss related works, microservices, event driven approaches, and justify each decision made. From there on, we will represent the software RA and describe the building blocks.
 
 \subsection{Big data system characteristics}
 
@@ -187,7 +187,7 @@ Furthermore, there was no evidence of an RA that provides for data caching. Avoi
 
 \begin{figure*}[!ht]
     \centering
-    \includegraphics[width=\textwidth]{Neomycelia-Minimal.eps}
+    \includegraphics[width=\textwidth]{Neomycelia.eps}
     \caption{Neomycelia Software Reference Architecture.} \label{NeomyceliaFig}
 \end{figure*}
 
@@ -223,6 +223,8 @@ The event backbone is the sole controller of communication between services, thr
 
 \textbf{Data Lake}: This contains structured, pseudo-structured, unstructured, and semi-structured data. In a generic setup, data is usually stored in the data lake before it is stream or batch processed. This may not provide the best-case scenario for all situations, so it is up to the architect to decide if that is the most appropriate  data flow in the system.
 
+\textbf{Semantic Layer}: This service mesh is the central hub for all metadata processing, containing the MetaData Management (MDM) system. The MDM is responsible for providing services with information to define and model raw data. This is where a domain vocabulary is defined and controlled by data stewards. The semantic layer provides the opportunity to store metadata, preparation rules, and data evolution and reduces the need for the data analyst or scientist to repeat work. 
+
 \textbf{Query Controller}: This service determines the type of query received (stream, batch, or other) that come from the gateway and dispatches the event to the query engine. The controller performs straight forward pre-processing or sanitization as required but heavy computation should be avoided.
 
 \textbf{Query Engine}: This service processes query requests. Once values are created, an event is dispatched the subsequent service to return results.
@@ -240,14 +242,11 @@ Optional services include sidecars, control towers, event queue, cache manager s
 
 RAs lack clearly defined stakeholders, exist at a high level of abstraction, and are highly adaptable \cite{AtaeiACIS}.RA evaluation is a challenge \cite{angelov2008contracting,Avgeriou,Cioroaica,Maier} because they are not the same as a typical architecture. Based on the guidelines provided by Galster and Avgeriou (\cite{GALSTER}), utility, correctness and instantiation support determine the quality of the RA, and therefore an effective evaluation is critical. To achieve that, we have first deduced a prototype architecture and then followed the guideline of architecture tradeoff analysis method (ATAM \cite{KazmanATAM}) to evaluate the prototype in practice.
 
-This is achieved by evaluating the correctness and utility of the RA, and how efficiently adaptation can be instantiated \cite{GALSTER}. Quality is assessed by how the RA can be transformed into an effective organization-specific concrete architecture and through qualitative and quantitative methods discussed in ATAM. This evaluation follows two phases. Phase 1 includes gathering basic information about the company, practice, and interaction with key stakeholders. 
+This is achieved by evaluating the correctness and utility of the RA, and how efficiently adaptation can be instantiated \cite{GALSTER}. Quality is assessed by how the RA can be transformed into an effective organization-specific concrete architecture and through qualitative and quantitative methods discussed in ATAM. This evaluation follows two phases. Phase 1 includes gathering basic information about the company, practice, and interaction with key stakeholders.
 
 Phase 2 includes analysis and evaluation of the proposed architecture, understanding quality attributes, tradeoff points, sensitive points and risks. We do not describe every step of the ATAM for brevity purposes. Additionally, some of the details have been changed for academic purposes and to protect the intellectual property of the practice. Nevertheless, the evaluation results are not materially affected.
 
 \subsection{Phase 1}
-
-
-% Neomycelia inherits successful attributes from the RAs it is based on. A scenario-based evaluation has been selected that focusses on quality attributes.
 
 Evaluation is undertaken in an Auckland-based company and being applied to new and existing workflows. The company provides practice management software to veterinary professionals via a Software as a Service (SaaS). The company serves over 15,000 clients from New Zealand, Australia, USA, UK, and Canada with some large equine hospitals and veterinary clinics. The company aims to embark on big data and machine learning endeavour, and seize abundance of business opportunities that exist.
 
@@ -257,7 +256,7 @@ We have used this information to create a prototype from Neomycelina,  quality a
 
 \subsection{Phase 2}
 
-In phase 2, We have first created an archetype of Neomycelia. We utilised ISO/IEC 25000 SQuaRE standard (Software Product Quality Requirements and Evaluation) (\cite{Iso}) as a reference quality model for technology selection. This model is described in terms of characteristics and sub-characteristics. The explanation of these characteristics is out of the scope of this paper. 
+In phase 2, We have first created an archetype of Neomycelia. We utilised ISO/IEC 25000 SQuaRE standard (Software Product Quality Requirements and Evaluation) (\cite{Iso}) as a reference quality model for technology selection. This model is described in terms of characteristics and sub-characteristics. The explanation of these characteristics is out of the scope of this paper.
 
 This archetype incorporates Kafka as the event backbone, AWS Lambda for the stream processing and batch processing controllers, Amazon load balancer as the gateway (application load balancer), Envoy for the sidecar services, Kubernetes as cluster manager, Docker for container technology, Resilience4J for a fault-tolerant communication module, Prometheus for the monitoring tool, Zookeeper for the service discovery tool, Istio as the service mesh control tower, Amazon RDS for services private database, Amazon S3 for the event archive, Amazon MQ as the message broker inside the mesh, an Amazon data lake, and Amazon EC2 for services. To account for better availability we have additionally setup autoscaling groups targeting two different target groups in two different zones.
 
@@ -295,12 +294,12 @@ A simulation scenario with a request that emulates the system in production has 
 
 We engineered API gateway to pass the request to the representative Lambda. The Lambda performed straightforward preprocessing (adding properties or mutating JSON objects) on the data and dispatched an event to Kafka.
 
-We raised several screening questions to better probe our approach and the business case, some of these questions were: 
+We raised several screening questions to better probe our approach and the business case, some of these questions were:
 
 \begin{itemize}
-    \item How do we recover from a failed event? 
+    \item How do we recover from a failed event?
     \item What happens if event backbone goes out of service?
-    \item How events are process? in what order? 
+    \item How events are process? in what order?
     \item If we need to remove sensitive data, how do we achieve that?
     \item How easily can be extend and modify our services?
 \end{itemize}
@@ -315,35 +314,37 @@ There are various approaches for building models of quality attrbiutes, such as 
 
 Hence, based on stakeholders feedback and utility tree, we can state that system quality Q\textsubscript{S}, is a function f of the quality attribute performance Q\textsubscript{P}, modifiability Q\textsubscript{M} and privacy Q\textsubscript{Pr}:
 
-\hfill \break
-Q\textsubscript{S} = f(Q\textsubscript{M}, Q\textsubscript{A}, Q\textsubscript{P})
- \hfill \break
-
+\begin{equation}
+    Q\textsubscript{S} = f(Q\textsubscript{M}, Q\textsubscript{A}, Q\textsubscript{P})
+\end{equation}
 
 \begin{itemize}
-    \item \textbf{Privacy}: We learnt that our prototype does not account for 'privacy' quality attribute. Thus we added a new service mesh called 'policy manager'. This service mesh is responsible for applying or checking policies about input data. The policy manager aligns policies with various contexts to determine how data should be retrieved or processed. This is achieved without significant coupling to the system. The main responsibility of this service mesh is to check if the input data is in line with business predefined policies. It then flags and dispatches subsequent event depending on the nature of the request. This has addressed stakeholders concern for geopolitical laws pertaining to data privacy. This has also addressed an architectural risk as we have not forseen the need for such service. 
-    \item \textbf{Modifiability}: for modifiability analysis, we followed SAAM (\cite{kazman1994saam}) and expanded on it to justify the utility tree generated. The decoupled and distributed nature of Neomycelia allowed us to easily account for utility tree generated. The fact that we could 'plug-in' and 'plug-out' services, service meshes and lambdas have proven to account for great level of modifiability. This has also helped in addressing other quality attributes such as privacy. We added a privacy service mesh and measured the time and effort it required. In our simple scenario, we have created a manifest file out of existing ones for our Kubernetes cluser, and deployed a new one, but this time with different labels pertaining the privacy manager service mesh. Depending on the complexity of the system, this may way, but our result prove that we can account for 1 p.m. that has been discussed in the utility tree. 
+    \item \textbf{Privacy}: We learnt that our prototype does not account for 'privacy' quality attribute. Thus we added a new service mesh called 'policy manager'. This service mesh is responsible for applying or checking policies about input data. The policy manager aligns policies with various contexts to determine how data should be retrieved or processed. This is achieved without significant coupling to the system. The main responsibility of this service mesh is to check if the input data is in line with business predefined policies. It then flags and dispatches subsequent event depending on the nature of the request. This has addressed stakeholders concern for geopolitical laws pertaining to data privacy. This has also addressed an architectural risk as we have not forseen the need for such service.
+    \item \textbf{Modifiability}: for modifiability analysis, we followed SAAM (\cite{kazman1994saam}) and expanded on it to justify the utility tree generated. The decoupled and distributed nature of Neomycelia allowed us to easily account for utility tree generated. The fact that we could 'plug-in' and 'plug-out' services, service meshes and lambdas have proven to account for great level of modifiability. This has also helped in addressing other quality attributes such as privacy. We added a privacy service mesh and measured the time and effort it required. In our simple scenario, we have created a manifest file out of existing ones for our Kubernetes cluser, and deployed a new one, but this time with different labels pertaining the privacy manager service mesh. Depending on the complexity of the system, this may way, but our result prove that we can account for 1 p.m. that has been discussed in the utility tree.
     \item \textbf{Performance}: we implemented a simple performance test by utlising a clous stress testing agent. The agent allowed us to simply execute an on-demand stress on the system. It became clear to us that Lambdas time to boot up (cold start) can affect our system's response time. We have captured an average of 250ms up to 500ms coldstart time for each Lambda to spin up and handle the request. Whereas replace Lambdas with an EC2 or a Fargate on AWS could solve the issue, we did not find that necessary, as even with the coldstart time, the system still could account for the response time required. Furthermore, we have realised that one solution to Lambda coldstart problems could be predictable start-up times with privisioned concurrency. However this is outside the scope of this study. We have also measured throughput between services. We encapsulated our service meshes in private networks, thus the communication were fast and our response time were under 1200ms.
 \end{itemize}
 
-As a result of these analysis, we identified two sensititivity points. 
 
-% We learnt that our prototype does not account for 'privacy' quality attribute. Thus we added a new service mesh called 'policy manager'. This service mesh is responsible for applying or checking policies about input data. In recent years, data privacy has presented as a challenge in BD management (Bashari Rad et al. 2016), so the policy manager aligns policies with various contexts to determine how data should be retrieved or processed, without significant coupling to the system. As the number of policies increase and are developed, more services can be added to this service mesh. 
+\subsubsection{Tradeoff points}
 
-%     The policy manager performed internal processing and decided if a property should be omitted or if the data can even be processed at all. Once done, the policy manager dispatched an event to the relevant topic. If processing is allowed, then the stream processing and batch processing service meshes that are listening for that topic will have their event handlers fired.
+As a result of these analysis, we identified two tradeoff points. One of which is the controllers and more specifically the Lambdas. We can refine this tradeoff point as:
 
-% \begin{itemize}
-%     \item  \textbf{Semantic layer}:
-%     \item  \textbf{Policy manager}:This service mesh is responsible for applying or checking policies about input data. In recent years, data privacy has presented as a challenge in BD management (Bashari Rad et al. 2016), so the policy manager aligns policies with various contexts to determine how data should be retrieved or processed, without significant coupling to the system. As the number of policies increase and are developed, more services can be added to this service mesh. The need for a new policy manager service mesh ought to be rare.
-% \end{itemize}
+\begin{equation}
+    Q\textsubscript{P} = g(\lambda \textsubscript{C},
+    \mu \textsubscript{C})
+\end{equation}
 
+That is, system performance is affected by the failure rate of the controllers to address and dispatch requests in a timely manner, implying $ \lambda \textsubscript{C} $ is being the failure rate of the controller, and  $ \mu \textsubscript{C} $ being the time it takes for the controller to spin up and address demand. Whereas there are solutions to this issue and some cloud providers have addressed this problem (Cloudflare workers), we have not taken that into consideration and our evaluation is based on AWS services.
 
+Therefore, we determine this as a risk. This is due to the fact that practitioners may need to do a background check up on the individual before dispensing a medicine, and this should be stream processed in a timely manner. On the other hand, substituting a Lambda for an EC2, would decrease the modifiability of the system, as EC2 is a complete virtual machine that needs to be maintained. This also means, the concept of 'controller' loses it's context, as we have perceived 'controller' as a very small traffic forwarding piece of our architecture (like a traffic light).
 
-% In this case, the request needs to be checked against the policies available in that geographic region. Policies are coded in the policy manager services mesh and the controller decides if a request needs to go through a policy manager initially.
+Another aspect that challenged Neomycelia was the criticality of the 'event backbone'. Being at the core of the architecture, we've seen worries around how it would recover in the case of failure and how does it scale to account for all the communications necessary. Kafka recovery is achieved through event archive that keeps track of all the events in a separate storage. This allows for recovery from abrupt failures. We have also realized that kafka can scale and effectively address the demand during our stress test.
 
+Therefore, we deduced that Kafka can account for the performance quality attribute. However, different stream processing platforms come with various schema registries that are sometimes need modification and do not adhere to the same interface. This means modifiability is affected, and it would be very difficult for a business to move to a new stream processing technology if desired. We have realized that the distributed nature of Kafka is really in line with our performance and modifiability goals. But this also limits the number of choices an architect has, and therefore modifiability can be compromised.
 
+\subsubsection{Limitations}
 
-% In the case of batch processing, each service will take the data, process it and then dispatch another event. This is the same for stream processing, with the difference that the requests will go through the message broker first. The controller is also responsible for choosing the storage processing strategy. Whereas most requests are saved in the data lake first, many may need to go through stream processing before that and then be dispatched to the data warehouse. testing latex
+Whereas many of the developers and the architect itself like the choreographed nature of our event-driven system and it's decoupled nature, Neomycelia has been perceived complicated to implement. practitioners perceived the prototype as requiring a lot of expertise in platform, specifically in Kubernetes cluster management and deployment. Furthermore, some stakeholder found internal message queue of the service mesh unnecessary in the initial phase.
 
 \section{Conclusion}
 

@@ -223,7 +223,7 @@ The event backbone is the sole controller of communication between services, thr
 
 \textbf{Data Lake}: This contains structured, pseudo-structured, unstructured, and semi-structured data. In a generic setup, data is usually stored in the data lake before it is stream or batch processed. This may not provide the best-case scenario for all situations, so it is up to the architect to decide if that is the most appropriate  data flow in the system.
 
-\textbf{Semantic Layer}: This service mesh is the central hub for all metadata processing, containing the MetaData Management (MDM) system. The MDM is responsible for providing services with information to define and model raw data. This is where a domain vocabulary is defined and controlled by data stewards. The semantic layer provides the opportunity to store metadata, preparation rules, and data evolution and reduces the need for the data analyst or scientist to repeat work. 
+\textbf{Semantic Layer}: This service mesh is the central hub for all metadata processing, containing the MetaData Management (MDM) system. The MDM is responsible for providing services with information to define and model raw data. This is where a domain vocabulary is defined and controlled by data stewards. The semantic layer provides the opportunity to store metadata, preparation rules, and data evolution and reduces the need for the data analyst or scientist to repeat work.
 
 \textbf{Query Controller}: This service determines the type of query received (stream, batch, or other) that come from the gateway and dispatches the event to the query engine. The controller performs straight forward pre-processing or sanitization as required but heavy computation should be avoided.
 
@@ -260,7 +260,7 @@ In phase 2, We have first created an archetype of Neomycelia. We utilised ISO/IE
 
 This archetype incorporates Kafka as the event backbone, AWS Lambda for the stream processing and batch processing controllers, Amazon load balancer as the gateway (application load balancer), Envoy for the sidecar services, Kubernetes as cluster manager, Docker for container technology, Resilience4J for a fault-tolerant communication module, Prometheus for the monitoring tool, Zookeeper for the service discovery tool, Istio as the service mesh control tower, Amazon RDS for services private database, Amazon S3 for the event archive, Amazon MQ as the message broker inside the mesh, an Amazon data lake, and Amazon EC2 for services. To account for better availability we have additionally setup autoscaling groups targeting two different target groups in two different zones.
 
-We have then presented the architecture to the stakeholders, identified architectural approaches, elicited quality attribute trees, and finally prioritized scenarios.
+We have then presented the architecture to the stakeholders, identified architectural approaches, elicited quality attribute trees, and prioritized scenarios.
 
 \subsubsection{Identifying architectural approaches}
 
@@ -273,6 +273,17 @@ To identify architectural approaches, we elicited information from the archetype
 \end{itemize}
 
 We probed each quality attribute for tradeoffs, sensitivity points, and risks.
+
+\subsubsection{Scenario Prioritisation}
+
+Scenarios allow for the capturing of stimuli to which the architecture has to react. These are captured to identify system's ability to meet functional and non-functional requirements. In this step, we asked stakeholders to come up with 3 different kind of scenarios namely use-case scenarios (typical use of the system), growth scenario (anticipated changes), and exploratory scenarios (extreme changes). We have then gave each stakeholder time to vote for each scenario. The result of this created over 30 scenarios, out of which 5 has been selected.
+
+We describe those 5 scenarios as two journeys;
+
+\begin{itemize}
+    \item User needs to get restricted medication for his/her pet, but he/she has to be background checked before the medication can be dispensed.
+    \item A large database of animals have been given to the system to predict certain disease.
+\end{itemize}
 
 \subsubsection{Ulitity tree elicitation}
 

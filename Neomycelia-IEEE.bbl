@@ -305,4 +305,18 @@ I.~Iso, ``Iec25010: 2011 systems and software engineering–systems and
   quality models,'' \emph{International Organization for Standardization},
   vol.~34, p. 2910, 2011.
 
+\bibitem{klein1993guide}
+M.~H. Klein, T.~Ralya, B.~Pollak, R.~Obebza, and M.~Harbour, ``Guide to rate
+  monotonic analysis for real-time systems,'' 1993.
+
+\bibitem{iannino1994software}
+A.~Iannino, ``Software reliability theory,'' \emph{Encyclopedia of Software
+  Engineering}, pp. 1237--1253, 1994.
+
+\bibitem{kazman1994saam}
+R.~Kazman, L.~Bass, G.~Abowd, and M.~Webb, ``Saam: A method for analyzing the
+  properties of software architectures,'' in \emph{Proceedings of 16th
+  International Conference on Software Engineering}.\hskip 1em plus 0.5em minus
+  0.4em\relax IEEE, 1994, pp. 81--90.
+
 \end{thebibliography}

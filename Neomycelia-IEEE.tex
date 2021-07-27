@@ -240,7 +240,9 @@ Optional services include sidecars, control towers, event queue, cache manager s
 
 RAs lack clearly defined stakeholders, exist at a high level of abstraction, and are highly adaptable \cite{AtaeiACIS}.RA evaluation is a challenge \cite{angelov2008contracting,Avgeriou,Cioroaica,Maier} because they are not the same as a typical architecture. Based on the guidelines provided by Galster and Avgeriou (\cite{GALSTER}), utility, correctness and instantiation support determine the quality of the RA, and therefore an effective evaluation is critical. To achieve that, we have first deduced a prototype architecture and then followed the guideline of architecture tradeoff analysis method (ATAM \cite{KazmanATAM}) to evaluate the prototype in practice.
 
-This is achieved by evaluating the correctness and utility of the RA, and how efficiently adaptation can be instantiated \cite{GALSTER}. Quality is assessed by how the RA can be transformed into an effective organization-specific concrete architecture and through qualitative and quantitative methods discussed in ATAM. This evaluation follows two phases. Phase 1 includes gathering basic information about the company, practice, and interaction with key stakeholders, and phase 2 includes analysis and evaluation of the proposed architecture, understanding quality attributes, tradeoff points, sensitive points and risks. We do not describe every step of the ATAM for brevity purposes. Additionally, some of the details have been changed for academic purposes and to protect the intellectual property of the practice, howbeit the evaluation results are not materially affected.
+This is achieved by evaluating the correctness and utility of the RA, and how efficiently adaptation can be instantiated \cite{GALSTER}. Quality is assessed by how the RA can be transformed into an effective organization-specific concrete architecture and through qualitative and quantitative methods discussed in ATAM. This evaluation follows two phases. Phase 1 includes gathering basic information about the company, practice, and interaction with key stakeholders. 
+
+Phase 2 includes analysis and evaluation of the proposed architecture, understanding quality attributes, tradeoff points, sensitive points and risks. We do not describe every step of the ATAM for brevity purposes. Additionally, some of the details have been changed for academic purposes and to protect the intellectual property of the practice. Nevertheless, the evaluation results are not materially affected.
 
 \subsection{Phase 1}
 
@@ -251,11 +253,11 @@ Evaluation is undertaken in an Auckland-based company and being applied to new a
 
 During the initial meeting, we first presented the ATAM and Neomycelia, and the business stakeholders presented the business case. We have then scoped down the business case to one workflow that NeoMycelia can account for. We learnt that countries adhere to local regulatory frameworks for drug prescriptions for animals, which means local jurisdictions control access to veterinary drugs as Restricted Veterinary Medicines (RVM). Under this protocol, all patients should be background-checked before a drug is dispensed. Therefore, real-time stream processing for background-checks and batch processing for billing triggers and reports generation is needed.  In the future, the system may provide breed detection via image processing of animal photos.
 
-We have used this information to generate quality attributes utility tree, to analyze our architectural approach and to create a prototype of Neomycelia.
+We have used this information to create a prototype from Neomycelina,  quality attributes utility tree, to analyze our architectural approach
 
 \subsection{Phase 2}
 
-In phase 2, We have first created an archetype of Neomycelia. We utilised ISO/IEC 25000 SQuaRE standard (Software Product Quality Requirements and Evaluation) (\cite{Iso}) as a reference quality model for technology selection. This model is described in terms of characteristics and sub-characteristics. The explanation of these characteristics is out of the scope of this paper.
+In phase 2, We have first created an archetype of Neomycelia. We utilised ISO/IEC 25000 SQuaRE standard (Software Product Quality Requirements and Evaluation) (\cite{Iso}) as a reference quality model for technology selection. This model is described in terms of characteristics and sub-characteristics. The explanation of these characteristics is out of the scope of this paper. 
 
 This archetype incorporates Kafka as the event backbone, AWS Lambda for the stream processing and batch processing controllers, Amazon load balancer as the gateway (application load balancer), Envoy for the sidecar services, Kubernetes as cluster manager, Docker for container technology, Resilience4J for a fault-tolerant communication module, Prometheus for the monitoring tool, Zookeeper for the service discovery tool, Istio as the service mesh control tower, Amazon RDS for services private database, Amazon S3 for the event archive, Amazon MQ as the message broker inside the mesh, an Amazon data lake, and Amazon EC2 for services. To account for better availability we have additionally setup autoscaling groups targeting two different target groups in two different zones.
 
@@ -268,14 +270,14 @@ To identify architectural approaches, we elicited information from the archetype
 \begin{itemize}
     \item for performance, application load balancer, lambdas and service meshes have been described
     \item for availability, we discussed scaling groups, and event archive
-    \item for modifiability, we discussed the 'zero coupling' philosophy of Neomycelia and decentralized nature of it
+    \item for modifiability, we discussed the 'zero coupling' philosophy of Neomycelia and decentralized nature of it. We discussed th event driven nature of it as well.
 \end{itemize}
 
 We probed each quality attribute for tradeoffs, sensitivity points, and risks.
 
 \subsubsection{Ulitity tree elicitation}
 
-In this step, we learnt from the stakeholders that privacy, modifiability and performance are the most important quality attributes. Based upon this, utility tree has been generated (\ref{UtilityFig}).
+In this step, we learnt from the stakeholders that privacy, modifiability and performance are the most important quality attributes, and we adjusted to it. We have also learnt that whereas availability is of concern, it still fall in a lower place than privacy. Based upon this, utility tree has been generated (\ref{UtilityFig}).
 
 
 \begin{figure}
@@ -287,13 +289,48 @@ In this step, we learnt from the stakeholders that privacy, modifiability and pe
 
 \subsubsection{Analyze architectural approaches}
 
-At this stage, we mapped our architectural approaches against a simulation scenario that matches businesses' case study. This approach was used to provide for heuristic qualitative analysis, to understand risks, tradeoffs and sensitivity points.
+At this stage, we mapped our architectural approaches against a simulation scenario that matches businesses' case study. This approach was used to provide for heuristic qualitative analysis, and to understand risks, tradeoffs and sensitivity points.
 
-A simulation scenario with a request that emulates the system in production has been formulated. We created relevant topic in the event backbone, and sent a mock API request with a mock data to test the system's response.
+A simulation scenario with a request that emulates the system in production has been formulated. We created relevant topic in the event backbone, and sent a mock API request with a mock data to test the system's response. Our mock data has been duplicated from real data.
 
 We engineered API gateway to pass the request to the representative Lambda. The Lambda performed straightforward preprocessing (adding properties or mutating JSON objects) on the data and dispatched an event to Kafka.
-`'
-We learnt that our prototype does not account for 'privacy' quality attribute that has been discussed. Thus we added a new service mesh called 'semantic layer. This service mesh is responsible for applying or checking policies about input data. In recent years, data privacy has presented as a challenge in BD management (Bashari Rad et al. 2016), so the policy manager aligns policies with various contexts to determine how data should be retrieved or processed, without significant coupling to the system. As the number of policies increase and are developed, more services can be added to this service mesh. The need for a new policy manager service mesh ought to be rare.
+
+We raised several screening questions to better probe our approach and the business case, some of these questions were: 
+
+\begin{itemize}
+    \item How do we recover from a failed event? 
+    \item What happens if event backbone goes out of service?
+    \item How events are process? in what order? 
+    \item If we need to remove sensitive data, how do we achieve that?
+    \item How easily can be extend and modify our services?
+\end{itemize}
+
+It is important to note that the Neomycelia itself as delinated in the figure \ref{NeomyceliaFig} does not entail all the details to understand the system. Thus, scenarios, prototypes, and quality attribute based analysis and screening questions can help illuminate the architectural view, tradeoff and sensitivity points. \cite{KazmanATAM}
+
+Sensitivty points for quality attributes are points that if changed, can drastically affect the behavior of the system. Therefore, one should pay close attention to these points as the pose the highest risk, and can affect the system's evolvability.
+
+Tradeoff points are points at which one service can affect various quality attributes, thus the architect should decide if the tradeoff is worth the implementation.
+
+There are various approaches for building models of quality attrbiutes, such as rate monotonic analysis for real-time systems (\cite{klein1993guide}), Markov models to understand reliability (\cite{iannino1994software}), and SAAM for modifiability (\cite{kazman1994saam}). Whereas some of these models are quite simple, they illuminate hidden risks that may not be very obvious from the beginning. For the purposes of this evaluation we do aim for a thorough and detailed analysis.
+
+Hence, based on stakeholders feedback and utility tree, we can state that system quality Q\textsubscript{S}, is a function f of the quality attribute performance Q\textsubscript{P}, modifiability Q\textsubscript{M} and privacy Q\textsubscript{Pr}:
+
+\hfill \break
+Q\textsubscript{S} = f(Q\textsubscript{M}, Q\textsubscript{A}, Q\textsubscript{P})
+ \hfill \break
+
+
+\begin{itemize}
+    \item \textbf{Privacy}: We learnt that our prototype does not account for 'privacy' quality attribute. Thus we added a new service mesh called 'policy manager'. This service mesh is responsible for applying or checking policies about input data. The policy manager aligns policies with various contexts to determine how data should be retrieved or processed. This is achieved without significant coupling to the system. The main responsibility of this service mesh is to check if the input data is in line with business predefined policies. It then flags and dispatches subsequent event depending on the nature of the request. This has addressed stakeholders concern for geopolitical laws pertaining to data privacy. This has also addressed an architectural risk as we have not forseen the need for such service. 
+    \item \textbf{Modifiability}: for modifiability analysis, we followed SAAM (\cite{kazman1994saam}) and expanded on it to justify the utility tree generated. The decoupled and distributed nature of Neomycelia allowed us to easily account for utility tree generated. The fact that we could 'plug-in' and 'plug-out' services, service meshes and lambdas have proven to account for great level of modifiability. This has also helped in addressing other quality attributes such as privacy. We added a privacy service mesh and measured the time and effort it required. In our simple scenario, we have created a manifest file out of existing ones for our Kubernetes cluser, and deployed a new one, but this time with different labels pertaining the privacy manager service mesh. Depending on the complexity of the system, this may way, but our result prove that we can account for 1 p.m. that has been discussed in the utility tree. 
+    \item \textbf{Performance}: 
+\end{itemize}
+
+
+
+% We learnt that our prototype does not account for 'privacy' quality attribute. Thus we added a new service mesh called 'policy manager'. This service mesh is responsible for applying or checking policies about input data. In recent years, data privacy has presented as a challenge in BD management (Bashari Rad et al. 2016), so the policy manager aligns policies with various contexts to determine how data should be retrieved or processed, without significant coupling to the system. As the number of policies increase and are developed, more services can be added to this service mesh. 
+
+%     The policy manager performed internal processing and decided if a property should be omitted or if the data can even be processed at all. Once done, the policy manager dispatched an event to the relevant topic. If processing is allowed, then the stream processing and batch processing service meshes that are listening for that topic will have their event handlers fired.
 
 % \begin{itemize}
 %     \item  \textbf{Semantic layer}:
@@ -302,11 +339,11 @@ We learnt that our prototype does not account for 'privacy' quality attribute th
 
 
 
-In this case, the request needs to be checked against the policies available in that geographic region. Policies are coded in the policy manager services mesh and the controller decides if a request needs to go through a policy manager initially.
+% In this case, the request needs to be checked against the policies available in that geographic region. Policies are coded in the policy manager services mesh and the controller decides if a request needs to go through a policy manager initially.
 
-The policy manager performs internal processing and decides if a property should be omitted or if the data can even be processed at all. Once done, the policy manager dispatches an event to the relevant topic. If processing is allowed, then the stream processing and batch processing service meshes that are listening for that topic will have their event handlers fired.
 
-In the case of batch processing, each service will take the data, process it and then dispatch another event. This is the same for stream processing, with the difference that the requests will go through the message broker first. The controller is also responsible for choosing the storage processing strategy. Whereas most requests are saved in the data lake first, many may need to go through stream processing before that and then be dispatched to the data warehouse. ss sss
+
+% In the case of batch processing, each service will take the data, process it and then dispatch another event. This is the same for stream processing, with the difference that the requests will go through the message broker first. The controller is also responsible for choosing the storage processing strategy. Whereas most requests are saved in the data lake first, many may need to go through stream processing before that and then be dispatched to the data warehouse. testing latex
 
 \section{Conclusion}
 

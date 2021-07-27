@@ -160,6 +160,8 @@ INPUT /home/pouya/Desktop/IEEE-Neomycelia/Utility Tree.pdf
 INPUT /home/pouya/Desktop/IEEE-Neomycelia/Utility Tree.pdf
 INPUT /home/pouya/Desktop/IEEE-Neomycelia/Neomycelia-IEEE.bbl
 INPUT /home/pouya/Desktop/IEEE-Neomycelia/Neomycelia-IEEE.bbl
+INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmri7t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmri8r.tfm
 INPUT /home/pouya/Desktop/IEEE-Neomycelia/Neomycelia-IEEE.aux

@@ -33,45 +33,45 @@ Warning--missing school in Eichler
 Warning--empty year in Cioroaica
 
 Done.
-You've used 56 entries,
+You've used 59 entries,
             4024 wiz_defined-function locations,
-            1149 strings with 17364 characters,
-and the built_in function-call counts, 36559 in all, are:
-= -- 2890
-> -- 937
-< -- 232
-+ -- 503
-- -- 181
-* -- 1672
-:= -- 5626
-add.period$ -- 120
-call.type$ -- 56
-change.case$ -- 50
-chr.to.int$ -- 516
-cite$ -- 76
-duplicate$ -- 2781
-empty$ -- 3091
-format.name$ -- 222
-if$ -- 8420
+            1165 strings with 17863 characters,
+and the built_in function-call counts, 38744 in all, are:
+= -- 3056
+> -- 995
+< -- 250
++ -- 535
+- -- 191
+* -- 1768
+:= -- 5934
+add.period$ -- 127
+call.type$ -- 59
+change.case$ -- 53
+chr.to.int$ -- 564
+cite$ -- 79
+duplicate$ -- 2938
+empty$ -- 3278
+format.name$ -- 234
+if$ -- 8929
 int.to.chr$ -- 0
-int.to.str$ -- 56
-missing$ -- 509
-newline$ -- 191
-num.names$ -- 56
-pop$ -- 1250
+int.to.str$ -- 59
+missing$ -- 537
+newline$ -- 200
+num.names$ -- 59
+pop$ -- 1326
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 2883
+skip$ -- 3050
 stack$ -- 0
-substring$ -- 1289
-swap$ -- 2077
-text.length$ -- 60
+substring$ -- 1404
+swap$ -- 2200
+text.length$ -- 62
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 56
+type$ -- 59
 warning$ -- 20
-while$ -- 146
-width$ -- 58
-write$ -- 527
+while$ -- 157
+width$ -- 61
+write$ -- 552
 (There were 20 warnings)

@@ -32,48 +32,47 @@ Warning--empty year in Munaf
 Warning--empty year in Gupta
 Warning--empty year in Molina
 Warning--missing school in Eichler
-Warning--empty year in Cioroaica
 
 Done.
-You've used 59 entries,
+You've used 55 entries,
             4024 wiz_defined-function locations,
-            1165 strings with 17863 characters,
-and the built_in function-call counts, 38744 in all, are:
-= -- 3056
-> -- 995
-< -- 250
-+ -- 535
-- -- 191
-* -- 1768
-:= -- 5934
-add.period$ -- 127
-call.type$ -- 59
-change.case$ -- 53
-chr.to.int$ -- 564
-cite$ -- 79
-duplicate$ -- 2938
-empty$ -- 3278
-format.name$ -- 234
-if$ -- 8929
+            1144 strings with 17178 characters,
+and the built_in function-call counts, 36078 in all, are:
+= -- 2853
+> -- 919
+< -- 231
++ -- 493
+- -- 177
+* -- 1651
+:= -- 5547
+add.period$ -- 119
+call.type$ -- 55
+change.case$ -- 49
+chr.to.int$ -- 513
+cite$ -- 74
+duplicate$ -- 2740
+empty$ -- 3055
+format.name$ -- 217
+if$ -- 8313
 int.to.chr$ -- 0
-int.to.str$ -- 59
-missing$ -- 537
-newline$ -- 200
-num.names$ -- 59
-pop$ -- 1326
+int.to.str$ -- 55
+missing$ -- 502
+newline$ -- 188
+num.names$ -- 55
+pop$ -- 1230
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 3050
+skip$ -- 2845
 stack$ -- 0
-substring$ -- 1404
-swap$ -- 2200
-text.length$ -- 62
+substring$ -- 1281
+swap$ -- 2052
+text.length$ -- 60
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 59
-warning$ -- 20
-while$ -- 157
-width$ -- 61
-write$ -- 552
-(There were 20 warnings)
+type$ -- 55
+warning$ -- 19
+while$ -- 146
+width$ -- 57
+write$ -- 519
+(There were 19 warnings)

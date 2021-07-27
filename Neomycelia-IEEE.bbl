@@ -289,29 +289,11 @@ P.~Avgeriou, ``Describing, instantiating and evaluating a reference
   architecture: A case study,'' \emph{Enterprise Architecture Journal}, vol.
   342, pp. 1--24, 2003.
 
-\bibitem{Cioroaica}
-E.~Cioroaica, S.~Chren, B.~Buhnova, T.~Kuhn, and D.~Dimitrov, ``Towards
-  creation of a reference architecture for trust-based digital ecosystems,'' in
-  \emph{Proceedings of the 13th European Conference on Software
-  Architecture-Volume 2}, Conference Proceedings, pp. 273--276.
-
-\bibitem{Maier}
-M.~Maier, A.~Serebrenik, and I.~Vanderfeesten, ``Towards a big data reference
-  architecture,'' \emph{University of Eindhoven}, 2013.
-
 \bibitem{Iso}
 I.~Iso, ``Iec25010: 2011 systems and software engineering–systems and
   software quality requirements and evaluation (square)–system and software
   quality models,'' \emph{International Organization for Standardization},
   vol.~34, p. 2910, 2011.
-
-\bibitem{klein1993guide}
-M.~H. Klein, T.~Ralya, B.~Pollak, R.~Obebza, and M.~Harbour, ``Guide to rate
-  monotonic analysis for real-time systems,'' 1993.
-
-\bibitem{iannino1994software}
-A.~Iannino, ``Software reliability theory,'' \emph{Encyclopedia of Software
-  Engineering}, pp. 1237--1253, 1994.
 
 \bibitem{kazman1994saam}
 R.~Kazman, L.~Bass, G.~Abowd, and M.~Webb, ``Saam: A method for analyzing the

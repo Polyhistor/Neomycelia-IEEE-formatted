@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.6.1)  27 JUL 2021 20:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.6.1)  26 JAN 2022 08:37
 entering extended mode
 **"c:/Users/Admin/OneDrive - AUT University/PHD Journey/Papers/APSEC 2021 - Big Data RA/Neomycelia-IEEE.tex"
 ("c:/Users/Admin/OneDrive - AUT University/PHD Journey/Papers/APSEC 2021 - Big Data RA/Neomycelia-IEEE.tex"
@@ -250,32 +250,29 @@ LaTeX Font Info:    ... okay on input line 12.
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
 )
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 28.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 28.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 30.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 30.
  (D:\MikTex\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 28.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 30.
  (D:\MikTex\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1{C:/Users/Admin/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
 ]
-Underfull \hbox (badness 2103) in paragraph at lines 68--69
+Underfull \hbox (badness 2103) in paragraph at lines 70--71
 []\OT1/ptm/m/n/10 To in-crease sys-tem-atic-ity and al-low for re-pro-ducibil-
  []
 
 
-Underfull \hbox (badness 1769) in paragraph at lines 68--69
+Underfull \hbox (badness 1769) in paragraph at lines 70--71
 \OT1/ptm/m/n/10 empirically-grounded RAs [[]]. In essence, \em-pir-i-cally
  []
 
 [2]
-Underfull \vbox (badness 5519) has occurred while \output is active []
-
-
-Underfull \hbox (badness 1694) in paragraph at lines 126--127
+Underfull \hbox (badness 1694) in paragraph at lines 128--129
 []\OT1/ptm/b/n/10 Variety\OT1/ptm/m/n/10 : Pro-vide the means for ra-tio-nal pro-cess-ing
  []
 
@@ -291,7 +288,7 @@ Package epstopdf Info: Source file: <Neomycelia.eps>
 Package epstopdf Info: Output file is already uptodate.
 
 
-pdfTeX warning: pdflatex (file c:/Users/Admin/OneDrive - AUT University/PHD Journey/Papers/APSEC 2021 - Big Data RA/Neomycelia-eps-converted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+pdfTeX warning: pdflatex.exe (file c:/Users/Admin/OneDrive - AUT University/PHD Journey/Papers/APSEC 2021 - Big Data RA/Neomycelia-eps-converted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
 <Neomycelia-eps-converted-to.pdf, id=19, 1737.49126pt x 1065.9825pt>
 File: Neomycelia-eps-converted-to.pdf Graphic file (type pdf)
 <use Neomycelia-eps-converted-to.pdf>
@@ -313,7 +310,7 @@ Overfull \hbox (4.0748pt too wide) in paragraph at lines 293--294
  [][] 
  []
 
-[8 <c:/Users/Admin/OneDrive - AUT University/PHD Journey/Papers/APSEC 2021 - Big Data RA/Utility Tree.pdf>] ("c:/Users\Admin\OneDrive - AUT University\PHD Journey\Papers\APSEC 2021 - Big Data RA\Neomycelia-IEEE.bbl" [9])
+[8 <c:/Users/Admin/OneDrive - AUT University/PHD Journey/Papers/APSEC 2021 - Big Data RA/Utility Tree.pdf>] ("c:/Users\Admin\OneDrive - AUT University\PHD Journey\Papers\APSEC 2021 - Big Data RA\Neomycelia-IEEE.bbl" [9] [10])
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -325,19 +322,21 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[10] ("c:/Users\Admin\OneDrive - AUT University\PHD Journey\Papers\APSEC 2021 - Big Data RA\Neomycelia-IEEE.aux") ) 
+[11
+
+] ("c:/Users\Admin\OneDrive - AUT University\PHD Journey\Papers\APSEC 2021 - Big Data RA\Neomycelia-IEEE.aux") ) 
 Here is how much of TeX's memory you used:
- 3835 strings out of 480795
- 54759 string characters out of 2913778
- 309617 words of memory out of 3000000
- 19813 multiletter control sequences out of 15000+200000
- 572057 words of font info for 100 fonts, out of 3000000 for 9000
+ 3851 strings out of 480795
+ 54956 string characters out of 2913778
+ 310643 words of memory out of 3000000
+ 19826 multiletter control sequences out of 15000+200000
+ 574245 words of font info for 109 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  30i,11n,37p,1223b,308s stack positions out of 5000i,500n,10000p,200000b,50000s
-{D:/MikTex/fonts/enc/dvips/base/8r.enc}<D:/MikTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmsy7.pfb><D:/MikTex/fonts/type1/urw/times/utmb8a.pfb><D:/MikTex/fonts/type1/urw/times/utmbi8a.pfb><D:/MikTex/fonts/type1/urw/times/utmr8a.pfb><D:/MikTex/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "c:/Users\Admin\OneDrive - AUT University\PHD Journey\Papers\APSEC 2021 - Big Data RA\Neomycelia-IEEE.pdf" (10 pages, 267448 bytes).
+{D:/MikTex/fonts/enc/dvips/base/8r.enc}<D:/MikTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmmi8.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmsy7.pfb><D:/MikTex/fonts/type1/urw/times/utmb8a.pfb><D:/MikTex/fonts/type1/urw/times/utmbi8a.pfb><D:/MikTex/fonts/type1/urw/times/utmr8a.pfb><D:/MikTex/fonts/type1/urw/times/utmri8a.pfb>
+Output written on "c:/Users\Admin\OneDrive - AUT University\PHD Journey\Papers\APSEC 2021 - Big Data RA\Neomycelia-IEEE.pdf" (11 pages, 277048 bytes).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
+ 92 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

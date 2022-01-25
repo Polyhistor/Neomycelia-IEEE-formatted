@@ -253,6 +253,30 @@ R.~M. Munaf, J.~Ahmed, F.~Khakwani, and T.~Rana, ``Microservices architecture:
   Conference on Communication Technologies (ComTech)}.\hskip 1em plus 0.5em
   minus 0.4em\relax IEEE, Conference Proceedings, pp. 82--87.
 
+\bibitem{montesi2016circuit}
+F.~Montesi and J.~Weber, ``Circuit breakers, discovery, and api gateways in
+  microservices,'' \emph{arXiv preprint arXiv:1609.05830}, 2016.
+
+\bibitem{sriraman2018mu}
+A.~Sriraman and T.~F. Wenisch, ``$\mu$ suite: a benchmark suite for
+  microservices,'' in \emph{2018 IEEE International Symposium on Workload
+  Characterization (IISWC)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 2018,
+  pp. 1--12.
+
+\bibitem{gan2019open}
+Y.~Gan, Y.~Zhang, D.~Cheng, A.~Shetty, P.~Rathi, N.~Katarki, A.~Bruno, J.~Hu,
+  B.~Ritchken, B.~Jackson \emph{et~al.}, ``An open-source benchmark suite for
+  microservices and their hardware-software implications for cloud \& edge
+  systems,'' in \emph{Proceedings of the Twenty-Fourth International Conference
+  on Architectural Support for Programming Languages and Operating Systems},
+  2019, pp. 3--18.
+
+\bibitem{kakivaya2018service}
+G.~Kakivaya, L.~Xun, R.~Hasha, S.~B. Ahsan, T.~Pfleiger, R.~Sinha, A.~Gupta,
+  M.~Tarta, M.~Fussell, V.~Modi \emph{et~al.}, ``Service fabric: a distributed
+  platform for building microservices in the cloud,'' in \emph{Proceedings of
+  the thirteenth EuroSys conference}, 2018, pp. 1--15.
+
 \bibitem{Indrasiri}
 K.~Indrasiri and P.~Siriwardena, ``Microservices for the enterprise,''
   \emph{Apress, Berkeley}, 2018.
